@@ -3,7 +3,7 @@ import './App.css';
 import HomePage from './components/HomePage';
 import { useEffect, useState } from 'react';
 import LocationsList from './components/LocationsList';
-
+import { Routes, Route } from 'react-router-dom';
 function App() {
   const [locations, setLocations] = useState([])
   const [lodgings, setLodgings] = useState([])
@@ -22,8 +22,12 @@ function App() {
   console.log(lodgings)
   return (
     <div className="App">
-      <HomePage />
-      <LocationsList locations={locations} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/locations" element={<LocationsList locations={locations}  />} />
+            {/* <Route path="/locations/:id" element={< /> } /> */}
+        <Route />
+      </Routes>
     </div>
   );
 }
