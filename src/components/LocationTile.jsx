@@ -14,7 +14,7 @@ function LocationTile({trip}) {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text>
-        <Button variant="primary" component={Link} to={`${trip.id}`} >Your stays</Button>
+        <Button variant="primary" href={`locations/${trip.id}`} >Your stays</Button>
       </Card.Body>
     </Card>
   );
