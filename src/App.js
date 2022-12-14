@@ -3,7 +3,7 @@ import './App.css';
 import HomePage from './components/HomePage';
 import { useEffect, useState } from 'react';
 import LocationsList from './components/LocationsList';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navigation/NavBar'
 import LocationPage from './components/LocationPage'
 
@@ -26,12 +26,14 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/locations" element={<LocationsList locations={locations}  />} />
-            <Route path="/locations/:id" element={<LocationPage lodgings={lodgings} /> } />
-        <Route />
-      </Routes>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/locations" element={<LocationsList locations={locations}  />} />
+              <Route path="/locations/:id" element={<LocationPage lodgings={lodgings} locations={locations} /> } />
+          <Route />
+        </Routes>
+      </Router>
     </div>
   );
 }

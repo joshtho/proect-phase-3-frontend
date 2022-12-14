@@ -9,7 +9,7 @@ function NavBar() {
           <Nav.Link href="/">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1" href="locations" >Locations</Nav.Link>
+          <Nav.Link href='/locations' >Locations</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="link-2">Link</Nav.Link>

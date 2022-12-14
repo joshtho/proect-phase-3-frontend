@@ -1,6 +1,6 @@
 import React from 'react'
 
-function LocationPage() {
+function LocationPage({lodgings, locations}) {
   return (
     <div>This is where the lodgings will go </div>
   )
