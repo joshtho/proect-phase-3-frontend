@@ -4,6 +4,9 @@ import HomePage from './components/HomePage';
 import { useEffect, useState } from 'react';
 import LocationsList from './components/LocationsList';
 import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/navigation/NavBar'
+import LocationPage from './components/LocationPage'
+
 function App() {
   const [locations, setLocations] = useState([])
   const [lodgings, setLodgings] = useState([])
@@ -22,10 +25,11 @@ function App() {
   console.log(lodgings)
   return (
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/locations" element={<LocationsList locations={locations}  />} />
-            {/* <Route path="/locations/:id" element={< /> } /> */}
+            <Route path="/locations/:id" element={<LocationPage lodgings={lodgings} /> } />
         <Route />
       </Routes>
     </div>

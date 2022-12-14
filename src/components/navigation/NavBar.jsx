@@ -1,14 +1,15 @@
 import Nav from 'react-bootstrap/Nav';
+import {Link} from 'react-router-dom'
 
-function Nav() {
+function NavBar() {
   return (
     <>
-      <Nav className="justify-content-center" activeKey="/home">
+      <Nav className="justify-content-center" activeKey="/">
         <Nav.Item>
-          <Nav.Link href="/home">Home</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1">Locations</Nav.Link>
+          <Nav.Link eventKey="link-1" href="locations" >Locations</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="link-2">Link</Nav.Link>
@@ -19,6 +20,7 @@ function Nav() {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-      
-
-export default Nav;
+    </>
+  )
+}
+export default NavBar;
