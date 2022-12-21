@@ -10,10 +10,6 @@ function LocationTile({trip}) {
       <Card.Img variant="top" src={trip.image} />
       <Card.Body>
         <Card.Title>{trip.name}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
         <Button variant="primary" href={`locations/${trip.id}`} >Your stays</Button>
       </Card.Body>
     </Card>

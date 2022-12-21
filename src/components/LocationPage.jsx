@@ -7,22 +7,22 @@ const params = useParams()
 const locationId = parseInt(params.id)
 const currentLocation = locations.find(location => location.id === locationId)
 const stays = lodgings.filter(lodging => locationId === lodging.location_id)
+const listStays = () => (stays.map(stay => (
+    <LodgingTile key={stay.id} stay={stay} location={currentLocation} />
+)))
 
-console.log(stays)
-console.log(currentLocation)
-console.log(lodgings)
 return (
     <div>
         {currentLocation ? 
-        <h1>{currentLocation.name}</h1>
-        stays.map(stay => (
-            <LodgingTile key={stay.id} stay={stay} />
-        ))
-         : "" }
+        <div>
+            <h1>{currentLocation.name}</h1>
+            {listStays()}
         
-
+        </div>
+         : "" }
     </div>
-  )
+    )
 }
-
+      
 export default LocationPage
+        
