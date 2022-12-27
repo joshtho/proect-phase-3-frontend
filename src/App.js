@@ -25,9 +25,9 @@ function App() {
   console.log(lodgings)
   return (
     <div className="App">
-      <NavBar />
       <Router>
-        <Routes>
+      <NavBar />
+      <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/locations" element={<LocationsList locations={locations}  />} />
               <Route path="/locations/:id" element={<LocationPage lodgings={lodgings} locations={locations} /> } />

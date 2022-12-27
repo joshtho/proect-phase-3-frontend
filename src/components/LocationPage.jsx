@@ -13,11 +13,11 @@ const listStays = () => (stays.map(stay => (
 
 return (
     <div>
+        <h1>Location Page</h1>
         {currentLocation ? 
         <div>
             <h1>{currentLocation.name}</h1>
             {listStays()}
-        
         </div>
          : "" }
     </div>
@@ -25,4 +25,3 @@ return (
 }
       
 export default LocationPage
-        

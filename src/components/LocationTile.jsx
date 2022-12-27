@@ -10,7 +10,9 @@ function LocationTile({trip}) {
       <Card.Img variant="top" src={trip.image} />
       <Card.Body>
         <Card.Title>{trip.name}</Card.Title>
-        <Button variant="primary" href={`locations/${trip.id}`} >Your stays</Button>
+        <Link to={`${trip.id}`}>
+            <Button>Your stays</Button>
+        </Link>
       </Card.Body>
     </Card>
   );

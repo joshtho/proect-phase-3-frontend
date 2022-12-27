@@ -1,15 +1,21 @@
+import React from 'react'
 import Nav from 'react-bootstrap/Nav';
 import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 function NavBar() {
   return (
     <>
       <Nav className="justify-content-center" activeKey="/">
         <Nav.Item>
-          <Nav.Link href="/">Home</Nav.Link>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href='/locations' >Locations</Nav.Link>
+          <Link to="/locations">
+            <Button>Locations</Button>
+          </Link>
         </Nav.Item>
       </Nav>
     </>
