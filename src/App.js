@@ -23,6 +23,10 @@ function App() {
     .then(lodgings => setLodgings(lodgings))
   }, [])
   console.log(locations)
+
+  function handleNewLocation(newLocation) {
+    setLocations([...locations, newLocation])
+  }
   return (
     <div className="App">
       <Router>
@@ -31,7 +35,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/locations" element={<LocationsList locations={locations}  />} />
               <Route path="/locations/:id" element={<LocationPage lodgings={lodgings} locations={locations} /> } />
-              <Route path="/locations/add" element={<AddLocation />} />
+              <Route path="/locations/add" element={<AddLocation onNewLocation={handleNewLocation} />} />
           <Route />
         </Routes>
       </Router>
