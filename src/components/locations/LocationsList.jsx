@@ -1,5 +1,6 @@
 import React from 'react'
 import LocationTile from './LocationTile'
+import Button from 'react-bootstrap/Button'
 
 function LocationsList({locations}) {
   return (
@@ -9,6 +10,8 @@ function LocationsList({locations}) {
             <LocationTile key={trip.id} trip={trip} />
         ))
         }
+        <h1>Add a location you would like to visit!</h1>
+        <Button>Add location</Button>
     </div>
   )
 }
