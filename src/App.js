@@ -22,7 +22,7 @@ function App() {
     .then(r => r.json())
     .then(lodgings => setLodgings(lodgings))
   }, [])
-
+  console.log(locations)
   return (
     <div className="App">
       <Router>
