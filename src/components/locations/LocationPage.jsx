@@ -1,6 +1,6 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
-import LodgingTile from './LodgingTile'
+import LodgingTile from '../lodging/LodgingTile'
 
 function LocationPage({lodgings, locations}) {
 const params = useParams()

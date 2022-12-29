@@ -1,11 +1,11 @@
 
 import './App.css';
-import HomePage from './components/HomePage';
+import HomePage from './components/static/HomePage';
 import { useEffect, useState } from 'react';
-import LocationsList from './components/LocationsList';
+import LocationsList from './components/locations/LocationsList';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navigation/NavBar'
-import LocationPage from './components/LocationPage'
+import LocationPage from './components/locations/LocationPage'
 
 function App() {
   const [locations, setLocations] = useState([])
@@ -21,8 +21,7 @@ function App() {
     .then(r => r.json())
     .then(lodgings => setLodgings(lodgings))
   }, [])
-  console.log(locations)
-  console.log(lodgings)
+
   return (
     <div className="App">
       <Router>
