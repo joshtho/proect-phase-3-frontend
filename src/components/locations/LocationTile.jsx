@@ -3,14 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom'
 
-function LocationTile({trip}) {
+function LocationTile({location}) {
 
   return (
     <Card style={{ width: '18rem' }} className='column' >
-      <Card.Img variant="top" src={trip.image} />
+      <Card.Img variant="top" src={location.image} />
       <Card.Body>
-        <Card.Title>{trip.name}</Card.Title>
-        <Link to={`${trip.id}`}>
+        <Card.Title>{location.name}</Card.Title>
+        <Card.Text>{location.description}</Card.Text>
+        <Link to={`${location.id}`}>
             <Button>Your stays</Button>
         </Link>
       </Card.Body>
