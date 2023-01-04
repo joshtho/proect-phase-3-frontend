@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button';
+import {useNavigate} from 'react-router-dom'
 
 function AddLocation({onNewLocation}) {
+    const navigate = useNavigate()
   const [locationData, setLocationData] = useState({
     name: "",
     description: "",
@@ -15,11 +18,16 @@ function AddLocation({onNewLocation}) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({locationData}),
+      body: JSON.stringify(locationData),
     })
       .then((r) => r.json())
-      .then((newLocation) => onNewLocation(newLocation));
-  }
+      .then(newLocation => {
+          onNewLocation(newLocation)
+          navigate('/locations')
+        }
+        )
+}
+
     return (
         <div>
             <h1>Where would you like to go</h1>
@@ -43,6 +51,7 @@ function AddLocation({onNewLocation}) {
             value={locationData.image}
             onChange={(e) => setLocationData({...locationData, image: e.target.value})}
             />
+            <Button onClick={handleSubmit}>Add Location</Button>
             </form>
             
             

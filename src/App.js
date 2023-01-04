@@ -34,8 +34,14 @@ function App() {
       <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/locations" element={<LocationsList locations={locations}  />} />
-              <Route path="/locations/:id" element={<LocationPage lodgings={lodgings} locations={locations} /> } />
-              <Route path="/locations/add" element={<AddLocation onNewLocation={handleNewLocation} />} />
+              <Route 
+              path="/locations/:id" 
+              element={<LocationPage lodgings={lodgings} locations={locations} /> } 
+              />
+              <Route 
+              path="/locations/add" 
+              element={<AddLocation onNewLocation={handleNewLocation} />} 
+              />
           <Route />
         </Routes>
       </Router>
