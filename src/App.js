@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navigation/NavBar'
 import LocationPage from './components/locations/LocationPage'
 import AddLocation from './components/locations/AddLocation';
+import EditLocation from './components/locations/EditLocation';
 
 function App() {
   const [locations, setLocations] = useState([])
@@ -38,6 +39,12 @@ function App() {
               path="/locations/:id" 
               element={<LocationPage lodgings={lodgings} locations={locations} /> } 
               />
+              
+              <Route 
+              path="/locations/:id/edit" 
+              element={<EditLocation locations={locations} onHandleUpdate={handleNewLocation}  />} 
+              />
+
               <Route 
               path="/locations/add" 
               element={<AddLocation onNewLocation={handleNewLocation} />} 

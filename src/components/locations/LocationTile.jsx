@@ -14,6 +14,9 @@ function LocationTile({location}) {
         <Link to={`${location.id}`}>
             <Button>Your stays</Button>
         </Link>
+        <Link to={`${location.id}/edit`}>
+            <Button>Edit</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
