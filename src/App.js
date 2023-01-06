@@ -8,6 +8,7 @@ import NavBar from './components/navigation/NavBar'
 import LocationPage from './components/locations/LocationPage'
 import AddLocation from './components/locations/AddLocation';
 import EditLocation from './components/locations/EditLocation';
+import AddLodging from './components/lodging/AddLodging';
 
 function App() {
   const [locations, setLocations] = useState([])
@@ -25,9 +26,14 @@ function App() {
   }, [])
   console.log(locations)
 
-  function handleNewLocation(newLocation) {
-    setLocations([...locations, newLocation])
+  function handleNewObj(newObj) {
+    if(newObj.season === true) {
+      setLodgings([...lodgings, newObj])
+    } else {
+      setLocations([...locations, newObj])
+    }
   }
+
   function handleUpdate(updatedObj) {
     const updatedLocations = locations.map(location => {
       if (location.id === updatedObj.id) {
@@ -68,7 +74,12 @@ function App() {
 
               <Route 
               path="/locations/add" 
-              element={<AddLocation onNewLocation={handleNewLocation} />} 
+              element={<AddLocation onNewLocation={handleNewObj} />} 
+              />
+
+              <Route 
+              path="/lodgings/:id" 
+              element={<AddLodging onNewLodging={handleNewObj} />} 
               />
           <Route />
         </Routes>

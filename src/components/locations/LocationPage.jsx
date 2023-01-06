@@ -1,6 +1,7 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import LodgingTile from '../lodging/LodgingTile'
+import Button from 'react-bootstrap/Button'
 
 function LocationPage({lodgings, locations}) {
 const params = useParams()
@@ -18,6 +19,10 @@ return (
         <div>
             <h1>{currentLocation.name}</h1>
             {listStays()}
+            <Link to={`/lodgings/${locationId}`} >
+                <Button>Add new lodging</Button>
+            </Link>
+            
         </div>
          : "" }
     </div>
