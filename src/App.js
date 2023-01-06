@@ -38,6 +38,12 @@ function App() {
     })
     setLocations(updatedLocations)
   }
+
+  function handleDelete(id) {
+    const updatedLocations = locations.filter(location => location.id != id)
+    setLocations(updatedLocations)
+  }
+
   return (
     <div className="App">
       <Router>
@@ -52,7 +58,12 @@ function App() {
               
               <Route 
               path="/locations/:id/edit" 
-              element={<EditLocation locations={locations} onHandleUpdate={handleUpdate}  />} 
+              element={
+              <EditLocation 
+              locations={locations} 
+              onHandleUpdate={handleUpdate} 
+              onHandleDelete={handleDelete}
+              />} 
               />
 
               <Route 

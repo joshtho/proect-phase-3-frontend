@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-function EditLocation({locations, onHandleUpdate}) {
+function EditLocation({locations, onHandleUpdate, onHandleDelete}) {
     const params = useParams()
     const navigate = useNavigate()
     const locationId = parseInt(params.id)
@@ -30,6 +30,15 @@ function handleSubmit(e) {
 
       })
 }
+
+function handleDelete() {
+    fetch(`http://localhost:9292/locations/${locationId}`, {
+        method: "DELETE",
+    })
+    onHandleDelete(locationId)
+    navigate('/locations')
+}
+
   return (
     <div>
 
@@ -58,7 +67,7 @@ function handleSubmit(e) {
         />
         <Button onClick={handleSubmit}>Update Location</Button>
         </form> 
-        <Button>Delete Location</Button>
+        <Button onClick={handleDelete}>Delete Location</Button>
     
         </div> : <h1>Loading...</h1>
         }
