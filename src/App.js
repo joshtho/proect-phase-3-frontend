@@ -28,6 +28,16 @@ function App() {
   function handleNewLocation(newLocation) {
     setLocations([...locations, newLocation])
   }
+  function handleUpdate(updatedObj) {
+    const updatedLocations = locations.map(location => {
+      if (location.id === updatedObj.id) {
+        return updatedObj
+      } else {
+        return location
+      }
+    })
+    setLocations(updatedLocations)
+  }
   return (
     <div className="App">
       <Router>
@@ -42,7 +52,7 @@ function App() {
               
               <Route 
               path="/locations/:id/edit" 
-              element={<EditLocation locations={locations} onHandleUpdate={handleNewLocation}  />} 
+              element={<EditLocation locations={locations} onHandleUpdate={handleUpdate}  />} 
               />
 
               <Route 

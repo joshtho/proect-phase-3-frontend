@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
 function EditLocation({locations, onHandleUpdate}) {
     const params = useParams()
+    const navigate = useNavigate()
     const locationId = parseInt(params.id)
     const currentLocation = locations.find(location => location.id === locationId)
     const [locationData, setLocationData] = useState({
@@ -11,7 +12,7 @@ function EditLocation({locations, onHandleUpdate}) {
         description: currentLocation.description,
         image: currentLocation.image
     })
-console.log(locationData)
+
 function handleSubmit(e) {
     e.preventDefault();
 
@@ -20,14 +21,14 @@ function handleSubmit(e) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: locationData.name,
-        description: locationData.description,
-        image: locationData.image
-      }),
+      body: JSON.stringify(locationData),
     })
       .then((r) => r.json())
-      .then((updatedMessage) => onHandleUpdate(updatedMessage));
+      .then((updatedLocation) => {
+        onHandleUpdate(updatedLocation)
+        navigate('/locations')
+
+      })
 }
   return (
     <div>
