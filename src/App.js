@@ -27,7 +27,7 @@ function App() {
   console.log(locations)
 
   function handleNewObj(newObj) {
-    if(newObj.season === true) {
+    if(newObj.guests === true) {
       setLodgings([...lodgings, newObj])
     } else {
       setLocations([...locations, newObj])
@@ -79,7 +79,7 @@ function App() {
 
               <Route 
               path="/lodgings/:id" 
-              element={<AddLodging onNewLodging={handleNewObj} />} 
+              element={<AddLodging onNewLodging={handleNewObj} locations={locations} />} 
               />
           <Route />
         </Routes>
